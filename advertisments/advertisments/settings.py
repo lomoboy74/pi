@@ -37,9 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "app_lesson_4",
     "app_adv",
-
+    "app_lesson_4",
 ]
 
 MIDDLEWARE = [
@@ -80,6 +79,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+    },
+    "new": {
+        "ENGINE": "django.db.backends.postgres",
+        "NAME": BASE_DIR / "db.postgr3",
     }
 }
 
