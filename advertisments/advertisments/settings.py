@@ -51,7 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "advertisements.urls"
+ROOT_URLCONF = "advertisments.urls"
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "advertisements.wsgi.application"
+WSGI_APPLICATION = "advertisments.wsgi.application"
 
 
 # Database
