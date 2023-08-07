@@ -13,9 +13,7 @@ class Advertisements(models.Model):
     created_time=models.DateTimeField(auto_now_add=True)
     updated_time=models.DateTimeField(auto_now=True)
 
-
-
-    @admin.display (description='Дата создания')
+    @admin.display(description='Дата создания')
     def created_date(self):
         from django.utils import timezone
         if self.created_time.date()== timezone.now().date():
@@ -25,15 +23,15 @@ class Advertisements(models.Model):
                                '{}</span>', creat_time)
         return self.created_time.strftime("%d.%m.%Y в %H:%M:%S")
 
-    @admin.display ( description='Обновлено' )
-    def updated_at(self):
+    @admin.display(description='Дата обновления')
+    def updated_date(self):
         from django.utils import timezone
-        if self.updated_at.date () == timezone.now ().date ():
-            updated_at = self.updated_at.time ().strftime ( "%H:%M:%S" )
-            return format_html ( '<span style="color: turquoise; '
-                                 'font-weight: bold">Сегодня в '
-                                 '{}</span>', updated_at )
-        return self.updated_at.strftime ( "%d.%m.%Y в %H:%M:%S" )
+        if self.updated_time.date() == timezone.now().date():
+            upd_time = self.updated_time.time().strftime("%H:%M:%S")
+            return format_html('<span style="color: green; '
+                               'font-weight: bold">Сегодня в '
+                               '{}</span>', upd_time)
+        return self.updated_time.strftime("%d.%m.%Y в %H:%M:%S")
 
     # def __str__(self):
     def __str__(self):
@@ -41,6 +39,3 @@ class Advertisements(models.Model):
 
     class Meta:
         db_table = "advertisements"
-
-
-
