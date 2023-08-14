@@ -9,3 +9,8 @@ def index(request):
 
 def top_sellers(request):
     return render(request, 'top-sellers.html')
+
+def advertisment_post(request):
+    from=
+    context={'from':from}
+    return render(request, 'advertisement-post.html')

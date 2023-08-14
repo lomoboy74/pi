@@ -18,6 +18,11 @@ class Advertisements(models.Model):
     user = models.ForeignKey(User,verbose_name="пользователь",on_delete=models.CASCADE)
     image = models.ImageField( "Изображение", upload_to="advertisments/" )
 
+    @admin.display ( description='фото' )
+    def get_html_image(self):
+        if self.image:
+            return format_html (
+                '<img src="{url}" style="max-width: 80px; max-height: 80px;">', url=self.image.url )
 
     @admin.display(description='Дата создания')
     def created_date(self):
@@ -38,6 +43,8 @@ class Advertisements(models.Model):
                                'font-weight: bold">Сегодня в '
                                '{}</span>', upd_time)
         return self.updated_time.strftime("%d.%m.%Y в %H:%M:%S")
+
+
 
     # def __str__(self):
     def __str__(self):
